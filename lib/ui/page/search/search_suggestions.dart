@@ -32,7 +32,7 @@ class SearchSuggestions<T> extends StatelessWidget {
                 child: MultiProvider(
                   providers: [
                     Provider<TextStyle>.value(
-                        value: Theme.of(context).textTheme.body1),
+                        value: Theme.of(context).textTheme.bodyText2),
                     ProxyProvider<TextStyle, Color>(
                       update: (context, textStyle, _) =>
                           textStyle.color.withOpacity(0.5),
@@ -68,7 +68,7 @@ class _SearchHotKeysWidgetState extends State<SearchHotKeysWidget> {
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((callback) {
-      Provider.of<SearchHotKeyModel>(context,listen: false).initData();
+      Provider.of<SearchHotKeyModel>(context, listen: false).initData();
     });
     super.initState();
   }
@@ -141,7 +141,7 @@ class _SearchHistoriesWidgetState extends State<SearchHistoriesWidget> {
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((callback) {
-      Provider.of<SearchHistoryModel>(context,listen: false).initData();
+      Provider.of<SearchHistoryModel>(context, listen: false).initData();
     });
     super.initState();
   }

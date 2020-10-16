@@ -9,7 +9,7 @@ import 'package:fun_android/ui/widget/article_list_Item.dart';
 import 'package:fun_android/ui/widget/article_skeleton.dart';
 import 'package:fun_android/ui/widget/skeleton.dart';
 import 'package:fun_android/utils/status_bar_utils.dart';
-import 'package:fun_android/view_model/wechat_account_model.dart';
+import 'package:fun_android/view_model/wechat_account_view_model.dart';
 import 'package:provider/provider.dart';
 import 'package:fun_android/model/tree.dart';
 import 'package:fun_android/provider/provider_widget.dart';
@@ -43,8 +43,8 @@ class _WechatAccountPageState extends State<WechatAccountPage>
     super.build(context);
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: StatusBarUtils.systemUiOverlayStyle(context),
-      child: ProviderWidget<WechatAccountCategoryModel>(
-          model: WechatAccountCategoryModel(),
+      child: ProviderWidget<WechatAccountCategoryViewModel>(
+          model: WechatAccountCategoryViewModel(),
           onModelReady: (model) {
             model.initData();
           },
@@ -52,7 +52,8 @@ class _WechatAccountPageState extends State<WechatAccountPage>
             if (model.isBusy) {
               return ViewStateBusyWidget();
             } else if (model.isError && model.list.isEmpty) {
-              return ViewStateErrorWidget(error: model.viewStateError, onPressed: model.initData);
+              return ViewStateErrorWidget(
+                  error: model.viewStateError, onPressed: model.initData);
             }
 
             List<Tree> treeList = model.list;
@@ -76,17 +77,22 @@ class _WechatAccountPageState extends State<WechatAccountPage>
                         title: Stack(
                           children: [
                             CategoryDropdownWidget(
-                                Provider.of<WechatAccountCategoryModel>(context)),
+                              Provider.of<WechatAccountCategoryViewModel>(
+                                context,
+                              ),
+                            ),
                             Container(
                               margin: const EdgeInsets.only(right: 25),
                               color: primaryColor.withOpacity(1),
                               child: TabBar(
-                                  isScrollable: true,
-                                  tabs: List.generate(
-                                      treeList.length,
-                                      (index) => Tab(
-                                            text: treeList[index].name,
-                                          ))),
+                                isScrollable: true,
+                                tabs: List.generate(
+                                  treeList.length,
+                                  (index) => Tab(
+                                    text: treeList[index].name,
+                                  ),
+                                ),
+                              ),
                             )
                           ],
                         ),
@@ -133,7 +139,8 @@ class _WechatArticleListState extends State<WechatArticleList>
             builder: (context, index) => ArticleSkeletonItem(),
           );
         } else if (model.isError) {
-          return ViewStateErrorWidget(error: model.viewStateError, onPressed: model.initData);
+          return ViewStateErrorWidget(
+              error: model.viewStateError, onPressed: model.initData);
         } else if (model.isEmpty) {
           return ViewStateEmptyWidget(onPressed: model.initData);
         }

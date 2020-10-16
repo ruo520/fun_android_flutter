@@ -7,7 +7,7 @@ import 'package:fun_android/service/wan_android_repository.dart';
 import 'favourite_model.dart';
 
 /// 微信公众号
-class WechatAccountCategoryModel extends ViewStateListModel<Tree> {
+class WechatAccountCategoryViewModel extends ViewStateListModel<Tree> {
   @override
   Future<List<Tree>> loadData() async {
     return await WanAndroidRepository.fetchWechatAccounts();

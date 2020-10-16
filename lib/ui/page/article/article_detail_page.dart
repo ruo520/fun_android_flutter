@@ -271,7 +271,7 @@ class WebViewPopupMenuItem<T> extends StatelessWidget {
         Icon(
           iconData,
           size: 20,
-          color: color ?? Theme.of(context).textTheme.body1.color,
+          color: color ?? Theme.of(context).textTheme.bodyText2.color,
         ),
         SizedBox(
           width: 20,

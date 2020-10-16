@@ -35,7 +35,7 @@ class ViewStateWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var titleStyle =
-        Theme.of(context).textTheme.subhead.copyWith(color: Colors.grey);
+        Theme.of(context).textTheme.subtitle1.copyWith(color: Colors.grey);
     var messageStyle = titleStyle.copyWith(
         color: titleStyle.color.withOpacity(0.7), fontSize: 14);
     return Column(
@@ -138,7 +138,6 @@ class ViewStateErrorWidget extends StatelessWidget {
   }
 }
 
-
 /// 页面无数据
 class ViewStateEmptyWidget extends StatelessWidget {
   final String message;
@@ -167,7 +166,6 @@ class ViewStateEmptyWidget extends StatelessWidget {
   }
 }
 
-
 /// 页面未授权
 class ViewStateUnAuthWidget extends StatelessWidget {
   final String message;
@@ -177,10 +175,10 @@ class ViewStateUnAuthWidget extends StatelessWidget {
 
   const ViewStateUnAuthWidget(
       {Key key,
-        this.image,
-        this.message,
-        this.buttonText,
-        @required this.onPressed})
+      this.image,
+      this.message,
+      this.buttonText,
+      @required this.onPressed})
       : super(key: key);
 
   @override

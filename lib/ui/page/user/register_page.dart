@@ -122,7 +122,7 @@ class RegisterButton extends StatelessWidget {
               S.of(context).signUp,
               style: Theme.of(context)
                   .accentTextTheme
-                  .title
+                  .headline6
                   .copyWith(wordSpacing: 6),
             ),
       onPressed: model.isBusy

@@ -37,11 +37,14 @@ class _StructurePageState extends State<StructurePage>
                           text: tabs[index],
                         )),
               )),
-          body: TabBarView(
-              children: [StructureCategoryList(), NavigationSiteCategoryList()])),
+          body: TabBarView(children: [
+            StructureCategoryList(),
+            NavigationSiteCategoryList()
+          ])),
     );
   }
 }
+
 /// 体系->体系
 class StructureCategoryList extends StatefulWidget {
   @override
@@ -65,7 +68,8 @@ class _StructureCategoryListState extends State<StructureCategoryList>
           if (model.isBusy) {
             return ViewStateBusyWidget();
           } else if (model.isError && model.list.isEmpty) {
-            return ViewStateErrorWidget(error: model.viewStateError, onPressed: model.initData);
+            return ViewStateErrorWidget(
+                error: model.viewStateError, onPressed: model.initData);
           }
           return Scrollbar(
             child: ListView.builder(
@@ -94,7 +98,7 @@ class StructureCategoryWidget extends StatelessWidget {
         children: <Widget>[
           Text(
             tree.name,
-            style: Theme.of(context).textTheme.subtitle,
+            style: Theme.of(context).textTheme.subtitle1,
           ),
           Wrap(
               spacing: 10,
@@ -102,7 +106,8 @@ class StructureCategoryWidget extends StatelessWidget {
                   tree.children.length,
                   (index) => ActionChip(
                         onPressed: () {
-                          Navigator.of(context).pushNamed(RouteName.structureList,
+                          Navigator.of(context).pushNamed(
+                              RouteName.structureList,
                               arguments: [tree, index]);
                         },
                         label: Text(
@@ -115,7 +120,6 @@ class StructureCategoryWidget extends StatelessWidget {
     );
   }
 }
-
 
 /// 体系->公众号
 class NavigationSiteCategoryList extends StatefulWidget {
@@ -141,7 +145,8 @@ class _NavigationSiteCategoryListState extends State<NavigationSiteCategoryList>
           if (model.isBusy) {
             return ViewStateBusyWidget();
           } else if (model.isError) {
-            return ViewStateErrorWidget(error: model.viewStateError, onPressed: model.initData);
+            return ViewStateErrorWidget(
+                error: model.viewStateError, onPressed: model.initData);
           }
           return Scrollbar(
             child: ListView.builder(
@@ -170,7 +175,7 @@ class NavigationSiteCategoryWidget extends StatelessWidget {
         children: <Widget>[
           Text(
             site.name,
-            style: Theme.of(context).textTheme.subtitle,
+            style: Theme.of(context).textTheme.subtitle1,
           ),
           Wrap(
               spacing: 10,

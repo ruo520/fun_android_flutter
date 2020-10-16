@@ -124,7 +124,7 @@ class LoginButton extends StatelessWidget {
               S.of(context).signIn,
               style: Theme.of(context)
                   .accentTextTheme
-                  .title
+                  .headline6
                   .copyWith(wordSpacing: 6),
             ),
       onPressed: model.isBusy

@@ -116,7 +116,7 @@ class UserHeaderWidget extends StatelessWidget {
                                     : S.of(context).toSignIn,
                                 style: Theme.of(context)
                                     .textTheme
-                                    .title
+                                    .headline6
                                     .apply(color: Colors.white.withAlpha(200))),
                             SizedBox(
                               height: 10,
@@ -137,7 +137,7 @@ class UserCoin extends StatelessWidget {
           if (model.isBusy) {
             return AppBarIndicator(radius: 8);
           }
-          var textStyle = Theme.of(context).textTheme.body1.copyWith(
+          var textStyle = Theme.of(context).textTheme.bodyText2.copyWith(
               color: Colors.white.withAlpha(200),
               decoration: TextDecoration.underline);
           return InkWell(
@@ -234,13 +234,11 @@ class UserListWidget extends StatelessWidget {
   }
 
   void switchDarkMode(BuildContext context) {
-    if (MediaQuery.of(context).platformBrightness ==
-        Brightness.dark) {
-      showToast("检测到系统为暗黑模式,已为你自动切换",position: ToastPosition.bottom);
+    if (MediaQuery.of(context).platformBrightness == Brightness.dark) {
+      showToast("检测到系统为暗黑模式,已为你自动切换", position: ToastPosition.bottom);
     } else {
-      Provider.of<ThemeModel>(context,listen: false).switchTheme(
-          userDarkMode:
-              Theme.of(context).brightness == Brightness.light);
+      Provider.of<ThemeModel>(context, listen: false).switchTheme(
+          userDarkMode: Theme.of(context).brightness == Brightness.light);
     }
   }
 }
@@ -268,7 +266,8 @@ class SettingThemeWidget extends StatelessWidget {
                   color: color,
                   child: InkWell(
                     onTap: () {
-                      var model = Provider.of<ThemeModel>(context,listen: false);
+                      var model =
+                          Provider.of<ThemeModel>(context, listen: false);
                       // var brightness = Theme.of(context).brightness;
                       model.switchTheme(color: color);
                     },
@@ -282,7 +281,7 @@ class SettingThemeWidget extends StatelessWidget {
               Material(
                 child: InkWell(
                   onTap: () {
-                    var model = Provider.of<ThemeModel>(context,listen: false);
+                    var model = Provider.of<ThemeModel>(context, listen: false);
                     var brightness = Theme.of(context).brightness;
                     model.switchRandomTheme(brightness: brightness);
                   },

@@ -55,7 +55,8 @@ class _ProjectPageState extends State<ProjectPage>
               return ViewStateBusyWidget();
             }
             if (model.isError) {
-              return ViewStateErrorWidget(error: model.viewStateError, onPressed: model.initData);
+              return ViewStateErrorWidget(
+                  error: model.viewStateError, onPressed: model.initData);
             }
 
             List<Tree> treeList = model.list;
@@ -124,10 +125,10 @@ class CategoryDropdownWidget extends StatelessWidget {
             child: DropdownButton(
           elevation: 0,
           value: currentIndex,
-          style: Theme.of(context).primaryTextTheme.subhead,
+          style: Theme.of(context).primaryTextTheme.subtitle1,
           items: List.generate(model.list.length, (index) {
             var theme = Theme.of(context);
-            var subhead = theme.primaryTextTheme.subhead;
+            var subhead = theme.primaryTextTheme.subtitle1;
             return DropdownMenuItem(
               value: index,
               child: Text(

@@ -1,10 +1,8 @@
 import 'dart:convert';
-
 import 'package:dio/native_imp.dart';
 import 'package:flutter/foundation.dart';
 import 'package:dio/dio.dart';
 import 'package:fun_android/utils/platform_utils.dart';
-
 export 'package:dio/dio.dart';
 
 // 必须是顶层函数
@@ -61,7 +59,6 @@ abstract class BaseResponseData {
   }
 }
 
-
 /// 接口的code没有返回为true的异常
 class NotSuccessException implements Exception {
   String message;
@@ -83,4 +80,3 @@ class UnAuthorizedException implements Exception {
   @override
   String toString() => 'UnAuthorizedException';
 }
-

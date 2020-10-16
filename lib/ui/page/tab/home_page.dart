@@ -197,12 +197,14 @@ class BannerWidget extends StatelessWidget {
               return InkWell(
                   onTap: () {
                     var banner = banners[index];
-                    Navigator.of(context).pushNamed(RouteName.articleDetail,
-                        arguments: Article()
-                          ..id = banner.id
-                          ..title = banner.title
-                          ..link = banner.url
-                          ..collect = false);
+                    Navigator.of(context).pushNamed(
+                      RouteName.articleDetail,
+                      arguments: Article()
+                        ..id = banner.id
+                        ..title = banner.title
+                        ..link = banner.url
+                        ..collect = false,
+                    );
                   },
                   child: BannerImage(banners[index].imagePath));
             },

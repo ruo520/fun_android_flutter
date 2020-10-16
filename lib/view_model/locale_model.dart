@@ -4,7 +4,7 @@ import 'package:fun_android/generated/l10n.dart';
 
 class LocaleModel extends ChangeNotifier {
 //  static const localeNameList = ['auto', '中文', 'English'];
-  static const localeValueList = ['', 'zh-CN', 'en'];
+  static const localeValueList = ['zh-CN', '', 'en'];
 
   //
   static const kLocaleIndex = 'kLocaleIndex';
@@ -14,7 +14,7 @@ class LocaleModel extends ChangeNotifier {
   int get localeIndex => _localeIndex;
 
   Locale get locale {
-    if (_localeIndex > 0) {
+    if (_localeIndex != 1) {
       var value = localeValueList[_localeIndex].split("-");
       return Locale(value[0], value.length == 2 ? value[1] : '');
     }
@@ -34,9 +34,9 @@ class LocaleModel extends ChangeNotifier {
 
   static String localeName(index, context) {
     switch (index) {
-      case 0:
-        return S.of(context).autoBySystem;
       case 1:
+        return S.of(context).autoBySystem;
+      case 0:
         return '中文';
       case 2:
         return 'English';

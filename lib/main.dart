@@ -2,13 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-
 import 'package:oktoast/oktoast.dart';
 import 'package:provider/provider.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-
 import 'package:fun_android/config/storage_manager.dart';
-
 import 'config/provider_manager.dart';
 import 'config/router_manger.dart';
 import 'generated/l10n.dart';
@@ -37,7 +34,7 @@ class App extends StatelessWidget {
               return RefreshConfiguration(
                 hideFooterWhenNotFull: true, //列表数据不满一页,不触发加载更多
                 child: MaterialApp(
-                  debugShowCheckedModeBanner: false,
+                  debugShowCheckedModeBanner: true,
                   theme: themeModel.themeData(),
                   darkTheme: themeModel.themeData(platformDarkMode: true),
                   locale: localeModel.locale,

@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
-import 'package:fun_android/generated/l10n.dart';
-import 'package:oktoast/oktoast.dart';
+// import 'package:fun_android/generated/l10n.dart';
+// import 'package:oktoast/oktoast.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 import 'view_state_list_model.dart';
